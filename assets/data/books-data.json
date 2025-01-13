@@ -1,0 +1,326 @@
+{
+    "code": 200,
+    "msg": "Success",
+    "data": [
+        {
+            "id": 1,
+            "photolink": "https://picsum.photos/id/101/200/300",
+            "bookname": "The Art of Coding",
+            "detail": "A comprehensive guide to mastering programming languages.",
+            "category": "Programming",
+            "price": 150
+        },
+        {
+            "id": 2,
+            "photolink": "https://picsum.photos/id/102/200/300",
+            "bookname": "Mastering Python",
+            "detail": "Learn Python from basics to advanced concepts.",
+            "category": "Programming",
+            "price": 200
+        },
+        {
+            "id": 3,
+            "photolink": "https://picsum.photos/id/103/200/300",
+            "bookname": "JavaScript Essentials",
+            "detail": "Everything you need to know about JavaScript.",
+            "category": "Programming",
+            "price": 180
+        },
+        {
+            "id": 4,
+            "photolink": "https://picsum.photos/id/104/200/300",
+            "bookname": "Data Structures and Algorithms",
+            "detail": "A deep dive into data structures and algorithms.",
+            "category": "Programming",
+            "price": 220
+        },
+        {
+            "id": 5,
+            "photolink": "https://picsum.photos/id/105/200/300",
+            "bookname": "Machine Learning Basics",
+            "detail": "A beginner's guide to machine learning.",
+            "category": "Programming",
+            "price": 250
+        },
+        {
+            "id": 6,
+            "photolink": "https://picsum.photos/id/106/200/300",
+            "bookname": "The Science of Cooking",
+            "detail": "A guide to the chemistry of flavors and techniques.",
+            "category": "Cooking",
+            "price": 100
+        },
+        {
+            "id": 7,
+            "photolink": "https://picsum.photos/id/107/200/300",
+            "bookname": "Baking Basics",
+            "detail": "Step-by-step instructions for baking perfect treats.",
+            "category": "Cooking",
+            "price": 120
+        },
+        {
+            "id": 8,
+            "photolink": "https://picsum.photos/id/108/200/300",
+            "bookname": "World Cuisine",
+            "detail": "Explore recipes from around the globe.",
+            "category": "Cooking",
+            "price": 150
+        },
+        {
+            "id": 9,
+            "photolink": "https://picsum.photos/id/109/200/300",
+            "bookname": "Healthy Meals",
+            "detail": "Quick and nutritious recipes for busy lifestyles.",
+            "category": "Cooking",
+            "price": 130
+        },
+        {
+            "id": 10,
+            "photolink": "https://picsum.photos/id/110/200/300",
+            "bookname": "Vegan Delights",
+            "detail": "A selection of plant-based recipes.",
+            "category": "Cooking",
+            "price": 140
+        },
+        {
+            "id": 11,
+            "photolink": "https://picsum.photos/id/111/200/300",
+            "bookname": "The Art of Painting",
+            "detail": "Learn the fundamentals of painting with this guide.",
+            "category": "Art",
+            "price": 200
+        },
+        {
+            "id": 12,
+            "photolink": "https://picsum.photos/id/112/200/300",
+            "bookname": "Drawing for Beginners",
+            "detail": "Start your drawing journey with this beginner-friendly guide.",
+            "category": "Art",
+            "price": 150
+        },
+        {
+            "id": 13,
+            "photolink": "https://picsum.photos/id/113/200/300",
+            "bookname": "Photography Essentials",
+            "detail": "A comprehensive guide to mastering photography.",
+            "category": "Art",
+            "price": 180
+        },
+        {
+            "id": 14,
+            "photolink": "https://picsum.photos/id/114/200/300",
+            "bookname": "Modern Art Explained",
+            "detail": "A journey through the world of modern art.",
+            "category": "Art",
+            "price": 220
+        },
+        {
+            "id": 15,
+            "photolink": "https://picsum.photos/id/115/200/300",
+            "bookname": "Sculpture Basics",
+            "detail": "Learn how to create sculptures with this guide.",
+            "category": "Art",
+            "price": 250
+        },
+        {
+            "id": 16,
+            "photolink": "https://picsum.photos/id/116/200/300",
+            "bookname": "Finance for Beginners",
+            "detail": "A beginner's guide to understanding finance and investments.",
+            "category": "Finance",
+            "price": 180
+        },
+        {
+            "id": 17,
+            "photolink": "https://picsum.photos/id/117/200/300",
+            "bookname": "Investment Strategies",
+            "detail": "Learn how to grow your wealth with proven strategies.",
+            "category": "Finance",
+            "price": 250
+        },
+        {
+            "id": 18,
+            "photolink": "https://picsum.photos/id/118/200/300",
+            "bookname": "Personal Budgeting",
+            "detail": "Tips and tricks for managing your personal finances.",
+            "category": "Finance",
+            "price": 120
+        },
+        {
+            "id": 19,
+            "photolink": "https://picsum.photos/id/119/200/300",
+            "bookname": "Cryptocurrency Basics",
+            "detail": "An introduction to cryptocurrency and blockchain technology.",
+            "category": "Finance",
+            "price": 200
+        },
+        {
+            "id": 20,
+            "photolink": "https://picsum.photos/id/120/200/300",
+            "bookname": "Stock Market 101",
+            "detail": "Understand the basics of trading in the stock market.",
+            "category": "Finance",
+            "price": 300
+        },
+        {
+            "id": 21,
+            "photolink": "https://picsum.photos/id/121/200/300",
+            "bookname": "Advanced Algorithms",
+            "detail": "A deep dive into advanced algorithm design.",
+            "category": "Programming",
+            "price": 300
+        },
+        {
+            "id": 22,
+            "photolink": "https://picsum.photos/id/122/200/300",
+            "bookname": "Web Development",
+            "detail": "Learn full-stack web development from scratch.",
+            "category": "Programming",
+            "price": 250
+        },
+        {
+            "id": 23,
+            "photolink": "https://picsum.photos/id/123/200/300",
+            "bookname": "Mobile App Development",
+            "detail": "Build Android and iOS apps with ease.",
+            "category": "Programming",
+            "price": 200
+        },
+        {
+            "id": 24,
+            "photolink": "https://picsum.photos/id/124/200/300",
+            "bookname": "Cloud Computing Basics",
+            "detail": "Learn the fundamentals of cloud computing.",
+            "category": "Programming",
+            "price": 220
+        },
+        {
+            "id": 25,
+            "photolink": "https://picsum.photos/id/125/200/300",
+            "bookname": "AI for Everyone",
+            "detail": "Discover the basics of artificial intelligence.",
+            "category": "Programming",
+            "price": 270
+        },
+        {
+            "id": 26,
+            "photolink": "https://picsum.photos/id/126/200/300",
+            "bookname": "The Vegetarian Cookbook",
+            "detail": "Delicious vegetarian recipes for every meal.",
+            "category": "Cooking",
+            "price": 120
+        },
+        {
+            "id": 27,
+            "photolink": "https://picsum.photos/id/127/200/300",
+            "bookname": "Instant Pot Recipes",
+            "detail": "Quick and easy meals with your instant pot.",
+            "category": "Cooking",
+            "price": 130
+        },
+        {
+            "id": 28,
+            "photolink": "https://picsum.photos/id/128/200/300",
+            "bookname": "Desserts Galore",
+            "detail": "Indulge in mouth-watering desserts.",
+            "category": "Cooking",
+            "price": 150
+        },
+        {
+            "id": 29,
+            "photolink": "https://picsum.photos/id/129/200/300",
+            "bookname": "Cooking for Beginners",
+            "detail": "Learn basic cooking skills and recipes.",
+            "category": "Cooking",
+            "price": 100
+        },
+        {
+            "id": 30,
+            "photolink": "https://picsum.photos/id/130/200/300",
+            "bookname": "The Pasta Guide",
+            "detail": "Master the art of making perfect pasta.",
+            "category": "Cooking",
+            "price": 140
+        },
+        {
+            "id": 31,
+            "photolink": "https://picsum.photos/id/131/200/300",
+            "bookname": "Sketching Techniques",
+            "detail": "Improve your sketching skills with these tips.",
+            "category": "Art",
+            "price": 150
+        },
+        {
+            "id": 32,
+            "photolink": "https://picsum.photos/id/132/200/300",
+            "bookname": "Oil Painting Mastery",
+            "detail": "Learn the techniques of oil painting.",
+            "category": "Art",
+            "price": 200
+        },
+        {
+            "id": 33,
+            "photolink": "https://picsum.photos/id/133/200/300",
+            "bookname": "Watercolor Wonders",
+            "detail": "Master watercolor painting with this guide.",
+            "category": "Art",
+            "price": 180
+        },
+        {
+            "id": 34,
+            "photolink": "https://picsum.photos/id/134/200/300",
+            "bookname": "Modern Photography",
+            "detail": "Capture stunning photos with modern techniques.",
+            "category": "Art",
+            "price": 250
+        },
+        {
+            "id": 35,
+            "photolink": "https://picsum.photos/id/135/200/300",
+            "bookname": "Art History",
+            "detail": "Explore the history of art through the ages.",
+            "category": "Art",
+            "price": 220
+        },
+        {
+            "id": 36,
+            "photolink": "https://picsum.photos/id/136/200/300",
+            "bookname": "Financial Freedom",
+            "detail": "Learn how to achieve financial independence.",
+            "category": "Finance",
+            "price": 300
+        },
+        {
+            "id": 37,
+            "photolink": "https://picsum.photos/id/137/200/300",
+            "bookname": "Real Estate Investments",
+            "detail": "Start investing in real estate with confidence.",
+            "category": "Finance",
+            "price": 270
+        },
+        {
+            "id": 38,
+            "photolink": "https://picsum.photos/id/138/200/300",
+            "bookname": "Money Management",
+            "detail": "Manage your money effectively and efficiently.",
+            "category": "Finance",
+            "price": 200
+        },
+        {
+            "id": 39,
+            "photolink": "https://picsum.photos/id/139/200/300",
+            "bookname": "Stock Market Secrets",
+            "detail": "Unlock the secrets of stock market success.",
+            "category": "Finance",
+            "price": 250
+        },
+        {
+            "id": 40,
+            "photolink": "https://picsum.photos/id/140/200/300",
+            "bookname": "Passive Income",
+            "detail": "Build a steady stream of passive income.",
+            "category": "Finance",
+            "price": 320
+        }
+    ]
+}
