@@ -5,8 +5,13 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <h1 class="navbar-brand">Store Shop</h1>
+          <NuxtLink to="/" class="navbar-link">หน้าแรก</NuxtLink>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
+              <!-- ตะกร้า -->
               <li class="nav-item">
                 <button class="btn btn-light position-relative" @click="toggleCartModal">
                   ตะกร้า
@@ -24,7 +29,7 @@
 
     <!-- Cart Modal -->
     <div v-if="isCartModalVisible" class="modal fade show" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="false" style="display: block;">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content custom-modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="cartModalLabel">รายการตะกร้าสินค้า</h5>
@@ -35,34 +40,45 @@
             <div v-if="cart.length === 0" class="text-center">
               <p>ตะกร้าของคุณว่างเปล่า</p>
             </div>
-            <ul class="list-group" v-else>
-              <li v-for="(item, index) in cart" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
-                <div class="d-flex align-items-center w-100">
-                  <input class="form-check-input me-2" type="checkbox" v-model="item.selectedForCheckout">
+            <div v-else>
+              <!-- Select All Checkbox -->
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" v-model="selectAll" @change="toggleSelectAll" id="selectAllCheckbox">
+                <label class="form-check-label" for="selectAllCheckbox">
+                  เลือกทั้งหมด ({{ selectedItemsCount }} / {{ cart.length }})
+                </label>
+              </div>
 
-                  <img :src="item.thumbnail" class="img-fluid cart-product-img" alt="Product image">
+              <!-- Cart Items -->
+              <ul class="list-group">
+                <li v-for="(item, index) in cart" :key="index" class="list-group-item d-flex justify-content-between align-items-center">
+                  <div class="d-flex align-items-center w-100">
+                    <input class="form-check-input me-2" type="checkbox" v-model="item.selectedForCheckout">
 
-                  <div class="ms-2 w-100">
-                    <h6>{{ item.title }}</h6>
-                    <p class="text-muted">{{ item.category }}</p>
+                    <img :src="item.thumbnail" class="img-fluid cart-product-img" alt="Product image">
 
-                    <p class="fw-bold text-danger mb-1">
-                      ${{ (item.price * item.quantity).toFixed(2) }}
-                    </p>
+                    <div class="ms-2 w-100">
+                      <h6>{{ item.title }}</h6>
+                      <p class="text-muted">{{ item.category }}</p>
 
-                    <p class="text-muted small mb-2">ราคา: ${{ item.price.toFixed(2) }} ต่อชิ้น</p>
+                      <p class="fw-bold text-danger mb-1">
+                        ${{ (item.price * item.quantity).toFixed(2) }}
+                      </p>
+
+                      <p class="text-muted small mb-2">ราคา: ${{ item.price.toFixed(2) }} ต่อชิ้น</p>
+                    </div>
+
+                    <div class="d-flex align-items-center position-relative">
+                      <button @click="changeQuantity(item, -1)" class="btn btn-sm btn-outline-secondary">-</button>
+                      <span class="mx-2">{{ item.quantity }}</span>
+                      <button @click="changeQuantity(item, 1)" class="btn btn-sm btn-outline-secondary">+</button>
+                      <button @click="removeFromCart(index)" class="btn btn-danger btn-sm ms-3">ลบ</button>
+                    </div>
                   </div>
-
-                  <div class="d-flex align-items-center position-relative">
-                    <button @click="changeQuantity(item, -1)" class="btn btn-sm btn-outline-secondary">-</button>
-                    <span class="mx-2">{{ item.quantity }}</span>
-                    <button @click="changeQuantity(item, 1)" class="btn btn-sm btn-outline-secondary">+</button>
-                    <button @click="removeFromCart(index)" class="btn btn-danger btn-sm ms-3">ลบ</button>
-                  </div>
-                </div>
-              </li>
-            </ul>
-
+                </li>
+              </ul>
+            </div>
+            <p class="fw-bold">จำนวนสิ้นค้าที่เลือก: {{ selectedItemsCount }}</p>
             <p class="fw-bold">รวมยอดสินค้าที่เลือกชำระ: ${{ selectedTotalPriceFormatted }}</p>
           </div>
 
@@ -87,16 +103,7 @@ import { ref, computed, provide } from 'vue';
 // State for the cart and modal visibility
 const cart = ref([]);
 const isCartModalVisible = ref(false);
-
-// Compute total price of all items in cart
-const totalPrice = computed(() => {
-  return cart.value.reduce((total, item) => total + item.price * item.quantity, 0);
-});
-
-// Format total price with commas
-const totalPriceFormatted = computed(() => {
-  return formatPrice(totalPrice.value);
-});
+const selectAll = ref(false);
 
 // Compute total price of selected items for checkout
 const selectedTotalPrice = computed(() => {
@@ -108,9 +115,23 @@ const selectedTotalPriceFormatted = computed(() => {
   return formatPrice(selectedTotalPrice.value);
 });
 
+// Compute the count of selected items
+const selectedItemsCount = computed(() => {
+  return cart.value.filter(item => item.selectedForCheckout).length;
+});
+
 // Helper function to format prices
 const formatPrice = (price) => {
   return price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+// Toggle Select All functionality
+const toggleSelectAll = () => {
+  if (selectAll.value) {
+    cart.value.forEach(item => item.selectedForCheckout = true);
+  } else {
+    cart.value.forEach(item => item.selectedForCheckout = false);
+  }
 };
 
 // Change product quantity
@@ -153,91 +174,6 @@ provide('addToCart', (product, quantity) => {
 });
 </script>
 
-
 <style scoped>
-/* Style for the modal body */
-.modal-body {
-  max-height: 70vh;
-  overflow-y: auto;
-}
-
-/* Cart product image */
-.cart-product-img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-}
-
-/* Button styling */
-button {
-  padding: 0.5rem 1rem;
-}
-
-/* Align product information */
-.ms-1 h6, .ms-1 p {
-  margin-bottom: 0 !important;
-}
-
-/* Make price bold */
-p.fw-bold {
-  font-weight: bold;
-}
-
-/* Modal footer styles */
-.modal-footer {
-  font-size: 0.875rem;
-  padding: 0.5rem 1rem;
-}
-
-/* Adjust modal size */
-.modal-dialog.modal-lg {
-  max-width: 40%;
-}
-
-/* Background color for the modal */
-.custom-modal-content {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
-/* Modal backdrop styling */
-.modal-backdrop.show {
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-/* Adjust spacing for the delete button */
-.ms-2 {
-  margin-left: 1rem;
-}
-
-/* Styling for flex layout in list items */
-.list-group-item .d-flex {
-  align-items: center;
-}
-
-.list-group-item {
-  position: relative;
-}
-
-/* Position quantity buttons in bottom-right */
-.list-group-item .d-flex .position-relative {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-
-/* Adjust button size */
-.list-group-item .d-flex button {
-  font-size: 1.2rem;
-  padding: 0.2rem 0.6rem;
-}
-
-/* Spacing between price and quantity buttons */
-.list-group-item .ms-2 p {
-  margin-bottom: 0.5rem;
-}
-
-/* Align checkbox to the left */
-.form-check-input {
-  margin-left: 0;
-}
+/* Add styles as needed */
 </style>
